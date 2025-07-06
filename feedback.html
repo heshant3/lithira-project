@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Health & Well-being Initiative</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/feedback.css">
+    
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo-nav">
+                <div class="logo" aria-label="Health & Well-being Initiative Logo">🏥</div>
+                <h1>Health & Well-being Initiative</h1>
+            </div>
+            <nav class="navbar" aria-label="Main navigation">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="table.html">Table</a></li>
+                    <li><a href="feedback.html" class="active" aria-current="page">Feedback</a></li>
+                    <li><a href="sitemap.html">Site Map</a></li>   
+                    <li><a href="team.html">Team</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <h2 style="text-align: center;">Share Your Feedback</h2>
+            <p style="text-align: center;">Your feedback helps us improve our health programs and services. Please take a moment to share your experience with us.</p>
+            
+            <form class="feedback-form" novalidate>
+                <fieldset class="personal-details">
+                    <legend>Personal Information</legend>
+                    
+                    <div class="form-group">
+                        <label for="fullName">Full Name <span aria-hidden="true">*</span></label>
+                        <input type="text" id="fullName" name="fullName" required 
+                               title="Please enter your full name" aria-required="true">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address <span aria-hidden="true">*</span></label>
+                        <input type="email" id="email" name="email" required 
+                               title="Please enter a valid email address" aria-required="true">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" 
+                               title="Please enter your phone number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <textarea id="address" name="address" rows="3" 
+                                  placeholder="Enter your address"></textarea>
+                    </div>
+                </fieldset>
+
+                <fieldset class="feedback-details">
+                    <legend>Feedback Details</legend>
+                    
+                    <div class="form-group">
+                        <label for="program">Which program did you participate in?</label>
+                        <select id="program" name="program">
+                            <option value="">Select a program</option>
+                            <option value="mental-health">Mental Health First Aid</option>
+                            <option value="screening">Health Screening</option>
+                            <option value="education">Health Education</option>
+                            <option value="outreach">Community Outreach</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <legend>Which services were most helpful? (Select all that apply)</legend>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="counseling" name="services" value="counseling">
+                                <label for="counseling">Counseling Services</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="screening" name="services" value="screening">
+                                <label for="screening">Health Screening</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="education" name="services" value="education">
+                                <label for="education">Educational Workshops</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="support" name="services" value="support">
+                                <label for="support">Support Groups</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="resources" name="services" value="resources">
+                                <label for="resources">Resource Referrals</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="improvements">Suggestions for improvement</label>
+                        <input list="improvement-suggestions" id="improvements" name="improvements" 
+                               placeholder="Type or select suggestions">
+                        <datalist id="improvement-suggestions">
+                            <option value="More evening sessions">
+                            <option value="Online resources">
+                            <option value="Better accessibility">
+                            <option value="More locations">
+                            <option value="Multilingual support">
+                        </datalist>
+                    </div>
+
+                    <fieldset class="form-group">
+                        <legend>How would you rate our services?</legend>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="excellent" name="rating" value="excellent">
+                                <label for="excellent">Excellent</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="good" name="rating" value="good">
+                                <label for="good">Good</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="fair" name="rating" value="fair">
+                                <label for="fair">Fair</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="poor" name="rating" value="poor">
+                                <label for="poor">Poor</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <legend>What aspects did you find most valuable?</legend>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="staff" name="valuable" value="staff">
+                                <label for="staff">Knowledgeable Staff</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="accessibility" name="valuable" value="accessibility">
+                                <label for="accessibility">Easy Accessibility</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="resources" name="valuable" value="resources">
+                                <label for="resources">Quality Resources</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="follow-up" name="valuable" value="follow-up">
+                                <label for="follow-up">Follow-up Support</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-group">
+                        <label for="visit-date">Date of your visit/participation</label>
+                        <div class="date-picker-wrapper">
+                            <input type="date" id="visit-date" name="visit-date">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="appointment-date">Preferred date for follow-up (if needed)</label>
+                        <div class="date-picker-wrapper">
+                            <input type="date" id="appointment-date" name="appointment-date">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="attachment">Upload any relevant documents (optional)</label>
+                        <input type="file" id="attachment" name="attachment" 
+                               accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comments">Additional Comments</label>
+                        <textarea id="comments" name="comments" rows="5" maxlength="500" 
+                                  placeholder="Please share any additional feedback or suggestions..."></textarea>
+                        <div class="character-counter">
+                            <span id="char-count">0</span>/500 characters
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Overall Experience Rating</label>
+                        <div class="emoji-rating">
+                            <button type="button" class="emoji-btn" data-rating="1" aria-label="Very poor rating">😞</button>
+                            <button type="button" class="emoji-btn" data-rating="2" aria-label="Poor rating">😐</button>
+                            <button type="button" class="emoji-btn" data-rating="3" aria-label="Neutral rating">🙂</button>
+                            <button type="button" class="emoji-btn" data-rating="4" aria-label="Good rating">😊</button>
+                            <button type="button" class="emoji-btn" data-rating="5" aria-label="Excellent rating">😍</button>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">Submit Feedback</button>
+                    <button type="reset" class="reset-btn">Reset Form</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+ <footer class="footer">
+        <div class="container">
+            <p>&copy;  ©2025 | Edited by: <a href="pageEditor_ST3.html" class="fname">Shevon</a></p>
+            <div class="footer-links">
+                <a href="editor_ST1.html">Student 1 Shevon</a>
+                <a href="editor_ST2.html"> Pasandi</a>
+                <a href="editor_ST3.html"> Minodya</a>
+                <a href="editor_ST4.html">Lithira</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="Javasript/feedback.js"></script>
+</body>
+</html>

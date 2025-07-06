@@ -1,0 +1,192 @@
+/* Profile Page Styles */
+
+.profile-card {
+  text-align: center;
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  background-color: white;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: var(--space-6);
+  animation: fadeInUp 0.4s ease-out;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--space-3);
+}
+
+.profile-card h3 {
+  font-size: var(--font-size-2xl);
+  color: var(--primary-700);
+  margin-bottom: var(--space-1);
+}
+
+.profile-card .role {
+  font-size: var(--font-size-base);
+  color: var(--neutral-600);
+}
+
+.profile-section {
+  background-color: var(--neutral-50);
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--space-5);
+  animation: fadeInUp 0.4s ease-out;
+}
+
+.profile-section h3 {
+  font-size: var(--font-size-xl);
+  color: var(--primary-600);
+  margin-bottom: var(--space-3);
+}
+
+.profile-section p,
+.profile-section ul,
+.profile-section li {
+  font-size: var(--font-size-base);
+  color: var(--neutral-700);
+  line-height: var(--line-height-relaxed);
+}
+
+.profile-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.profile-section li {
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-2);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+/* Progress Bars */
+.progress-bar {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-top: var(--space-1);
+  margin-bottom: var(--space-3);
+}
+
+.progress-bar div {
+  height: 20px;
+  background-color: var(--primary-500);
+  text-align: center;
+  color: white;
+  font-size: var(--font-size-sm);
+  line-height: 20px;
+}
+
+/* Table Styling */
+.profile-section table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--space-3);
+}
+
+.profile-section th,
+.profile-section td {
+  padding: var(--space-2);
+  border: 1px solid var(--neutral-200);
+  text-align: left;
+  font-size: var(--font-size-sm);
+}
+
+/* Form Styling */
+form label {
+  font-weight: 600;
+  display: block;
+  margin-top: var(--space-2);
+  color: var(--neutral-700);
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: var(--space-2);
+  margin-top: var(--space-1);
+  margin-bottom: var(--space-3);
+  border: 1px solid var(--neutral-300);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+}
+
+.button {
+  background-color: var(--primary-500);
+  color: white;
+  border: none;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--primary-600);
+}
+
+.button-secondary {
+  background-color: var(--neutral-400);
+  color: white;
+  border: none;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-secondary:hover {
+  background-color: var(--neutral-500);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-card,
+  .profile-section {
+    padding: var(--space-4);
+  }
+
+  .avatar {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-card h3 {
+    font-size: var(--font-size-xl);
+  }
+
+  .profile-section h3 {
+    font-size: var(--font-size-lg);
+  }
+
+  .progress-bar div {
+    font-size: var(--font-size-xs);
+  }
+}

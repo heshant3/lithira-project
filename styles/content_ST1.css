@@ -1,0 +1,128 @@
+/* Styles specific to mental_health.html */
+
+/* Content Navigation Tabs */
+.content-nav {
+    margin-bottom: var(--space-4);
+}
+
+.content-nav ul {
+    display: flex;
+    list-style: none;
+    gap: var(--space-2);
+    border-bottom: 2px solid var(--neutral-200);
+    padding-bottom: var(--space-1);
+}
+
+.content-nav a {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    color: var(--neutral-600);
+    border-radius: var(--radius-md);
+}
+
+.content-nav a:hover {
+    background-color: var(--primary-50);
+    color: var(--primary-600);
+}
+
+.content-nav a.active {
+    background-color: var(--secondary-600);
+    color: white;
+}
+
+.content-nav a.active:hover {
+    background-color: var(--secondary-700);
+}
+
+/* Section Styles */
+section {
+    margin-bottom: var(--space-6);
+    padding: var(--space-4);
+    background-color: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+/* Highlight Text */
+p.highlight {
+    background-color: var(--secondary-50);
+    padding: var(--space-2);
+    border-left: 4px solid var(--secondary-500);
+    font-style: italic;
+    margin: var(--space-3) 0;
+}
+
+/* Images */
+section img {
+    width: 100%;
+    max-width: 600px;
+    margin: var(--space-3) auto;
+    display: block;
+    border: 2px solid var(--neutral-200);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Video */
+video {
+    width: 100%;
+    max-width: 800px;
+    margin: var(--space-3) auto;
+    display: block;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+/* List Styles */
+section ul {
+    list-style-type: disc;
+    padding-left: var(--space-4);
+    margin-bottom: var(--space-3);
+}
+
+section ul li {
+    margin-bottom: var(--space-1);
+    font-size: var(--font-size-base);
+    color: var(--neutral-700);
+}
+
+/* Headings within Sections */
+section h3 {
+    color: var(--secondary-700);
+    margin-top: var(--space-3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content-nav a {
+        width: 100%;
+        text-align: center;
+    }
+
+    section img,
+    video {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: var(--space-2);
+    }
+
+    .content-nav a {
+        font-size: var(--font-size-base);
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .content-nav a {
+        transition: none;
+    }
+}

@@ -1,0 +1,79 @@
+/* Page Editor Specific Styles for G. S. Tharaka (Student 1) */
+
+:root {
+    --health-blue: #2196f3;
+    --health-light: #e3f2fd;
+}
+
+body {
+    background-color: var(--neutral-50);
+}
+
+.internal-nav {
+    background: var(--health-light);
+    padding: var(--space-2);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-4);
+}
+
+.internal-nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.internal-nav a {
+    padding: var(--space-1) var(--space-2);
+    background: var(--primary-600);
+    color: white;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+}
+
+.internal-nav a:hover {
+    background: var(--primary-700);
+    transform: translateY(-1px);
+}
+
+section {
+    margin-bottom: var(--space-4);
+    padding: var(--space-3);
+    background: white;
+    border: 1px solid var(--neutral-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+section h2 {
+    border-bottom: 2px solid var(--health-blue);
+    padding-bottom: var(--space-1);
+}
+
+section p, section ul {
+    margin-bottom: var(--space-2);
+}
+
+section ul {
+    list-style: disc;
+    margin-left: var(--space-3);
+}
+
+code {
+    background: var(--neutral-100);
+    padding: 0.2rem 0.4rem;
+    border-radius: var(--radius-sm);
+    font-family: 'Courier New', monospace;
+}
+
+.go-to-top {
+    position: fixed;
+    bottom: var(--space-2);
+    right: var(--space-2);
+}
+
+@media (max-width: 768px) {
+    .internal-nav ul {
+        flex-direction: column;
+    }
+}

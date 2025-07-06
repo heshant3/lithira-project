@@ -1,0 +1,113 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    background: linear-gradient(
+        rgba(34, 88, 54, 0.35), /* Light overlay for background image */
+        rgba(81, 167, 95, 0.35)
+    ),
+    url('../Image/istockphoto-1464383053-612x612.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #0F1C4D; /* Dark blue for primary text */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    line-height: 1.6;
+}
+.logo {
+            font-size: 120px;
+            margin-bottom: 32px;
+            color: #1565C0;
+            animation: subtlePulse 2.5s infinite ease-in-out;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.03);
+        }
+
+h1 {
+    font-size: 3em;
+    font-weight: 700;
+    color: #0D2A7F; /* Dark vibrant blue for headings */
+    margin: 0.5em 0;
+    letter-spacing: 0.02em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+p {
+    font-size: 1.4em;
+    font-weight: 400;
+    color: #2B66C3; /* Darker medium blue for paragraphs */
+    margin: 0.6em 0;
+    max-width: 700px;
+}
+
+  .group-members {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #BFDBFE; /* Slightly darker blue for member section */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .group-members h2 {
+    color: #1E3A8A; /* Dark blue for subheading */
+    margin-bottom: 15px;
+  }
+  .group-members ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .group-members li {
+    font-size: 1.1em;
+    margin: 5px 0;
+    color: #2563EB; /* Bright blue for list items */
+  }
+
+.material-symbols-outlined {
+    font-size: 4em;
+    color: #0D2A7F; /* Dark blue for icon */
+    margin: 0.5em 0;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.2em;
+    }
+
+    .group-members h2 {
+        font-size: 1.7em;
+    }
+
+    p {
+        font-size: 1.2em;
+    }
+
+    .group-members {
+        padding: 1.2em;
+        max-width: 90%;
+    }
+
+    .group-members li {
+        font-size: 1.1em;
+    }
+
+    .material-symbols-outlined {
+        font-size: 3em;
+    }
+    .logo {
+                font-size: 90px;
+            }
+}
+
+/* Ensure smooth animations and professional typography */
+* {
+    box-sizing: border-box;
+}
+
+body, h1, h2, p, ul, li, .material-symbols-outlined {
+    transition: all 0.3s ease-in-out;
+}

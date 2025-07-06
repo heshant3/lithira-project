@@ -1,0 +1,225 @@
+/* Table Page Styles */
+
+.table-container {
+    background: white;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    margin-bottom: var(--space-6);
+}
+
+.health-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-base);
+}
+
+.health-table th,
+.health-table td {
+    padding: var(--space-3);
+    text-align: left;
+    border-bottom: 1px solid var(--neutral-200);
+    transition: all 0.2s ease;
+}
+
+.health-table th {
+    background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+}
+
+.health-table th:hover {
+    background: linear-gradient(135deg, var(--primary-700), var(--primary-800));
+}
+
+.logo-cell {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-1);
+}
+
+.health-table tbody tr {
+    transition: all 0.2s ease;
+}
+
+.health-table tbody tr:hover {
+    background-color: var(--primary-50);
+    transform: scale(1.01);
+    box-shadow: var(--shadow-sm);
+}
+
+.alt-row {
+    background-color: var(--neutral-50);
+}
+
+.alt-row:hover {
+    background-color: var(--primary-50);
+}
+
+.health-table td a {
+    color: var(--primary-600);
+    font-weight: 600;
+    text-decoration: none;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+}
+
+.health-table td a:hover {
+    background-color: var(--primary-100);
+    color: var(--primary-700);
+    transform: translateX(4px);
+}
+
+.status-cell {
+    text-align: center;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--secondary-600);
+}
+
+.health-table th[title] {
+    cursor: help;
+    position: relative;
+}
+
+.health-table th[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--neutral-800);
+    color: white;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    white-space: nowrap;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+}
+
+.health-table th[title]:hover::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(2px);
+    border: 4px solid transparent;
+    border-top-color: var(--neutral-800);
+    z-index: 1000;
+}
+
+/* Merged cells styling */
+.health-table th[rowspan],
+.health-table th[colspan] {
+    background: linear-gradient(135deg, var(--secondary-600), var(--secondary-700));
+}
+
+/* Table Legend */
+.table-legend {
+    background: white;
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.table-legend h3 {
+    margin-bottom: var(--space-3);
+    color: var(--neutral-900);
+}
+
+.table-legend ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-2);
+}
+
+.table-legend li {
+    padding: var(--space-2);
+    background: var(--neutral-50);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--primary-500);
+    transition: all 0.2s ease;
+}
+
+.table-legend li:hover {
+    background: var(--primary-50);
+    transform: translateX(4px);
+}
+
+.table-legend strong {
+    color: var(--primary-600);
+    font-size: var(--font-size-lg);
+    margin-right: var(--space-2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .table-container {
+        overflow-x: auto;
+    }
+    
+    .health-table {
+        min-width: 600px;
+    }
+    
+    .health-table th,
+    .health-table td {
+        padding: var(--space-2);
+        font-size: var(--font-size-sm);
+    }
+    
+    .logo-cell {
+        font-size: var(--font-size-lg);
+    }
+    
+    .table-legend ul {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .health-table {
+        min-width: 500px;
+    }
+    
+    .health-table th,
+    .health-table td {
+        padding: var(--space-1);
+    }
+    
+    .health-table th {
+        font-size: var(--font-size-sm);
+    }
+}
+
+/* Animation for table load */
+@keyframes tableSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.health-table tbody tr {
+    animation: tableSlideIn 0.5s ease-out;
+}
+
+.health-table tbody tr:nth-child(1) { animation-delay: 0.1s; }
+.health-table tbody tr:nth-child(2) { animation-delay: 0.2s; }
+.health-table tbody tr:nth-child(3) { animation-delay: 0.3s; }
+.health-table tbody tr:nth-child(4) { animation-delay: 0.4s; }
+.health-table tbody tr:nth-child(5) { animation-delay: 0.5s; }
+.health-table tbody tr:nth-child(6) { animation-delay: 0.6s; }
+.health-table tbody tr:nth-child(7) { animation-delay: 0.7s; }
+.health-table tbody tr:nth-child(8) { animation-delay: 0.8s; }
+.health-table tbody tr:nth-child(9) { animation-delay: 0.9s; }

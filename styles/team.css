@@ -1,0 +1,295 @@
+/* Team Page Styles */
+
+/* Define custom properties for consistent theming */
+:root {
+    --primary-blue: #E0F1FF;
+    --primary-blue-dark: #B3D7FF;
+    --white-bg: #FFFFFF;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --text-dark: #1A1A1A;
+    --text-light: #4A4A4A;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --font-size-lg: 1.125rem;
+    --font-size-2xl: 1.5rem;
+    --line-height-relaxed: 1.625;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+    margin: var(--space-8) auto;
+    max-width: 1400px;
+    padding: 0 var(--space-4);
+}
+
+.team-member {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    perspective: 1000px;
+    border-radius: var(--radius-xl);
+    background: var(--white-bg);
+    overflow: hidden;
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+}
+
+.team-member:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 12px 24px var(--shadow-color);
+}
+
+.member-thumbnail {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: var(--radius-xl);
+    border: 2px solid var(--primary-blue);
+}
+
+.team-member:hover .member-thumbnail {
+    transform: rotateY(180deg) scale(1.01);
+}
+
+/* Front side of card */
+.member-thumbnail img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-xl);
+    backface-visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.team-member:hover .member-thumbnail img {
+    opacity: 0.9;
+}
+
+/* Back side of card */
+.member-overlay {
+    position: absolute;
+    inset: 0;
+    padding: var(--space-4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+    border-radius: var(--radius-xl);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.team-member:hover .member-overlay {
+    opacity: 1;
+}
+
+.member-details {
+    color: var(--text-dark);
+    text-align: center;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.team-member:hover .member-details {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.member-details h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: var(--space-2);
+    color: var(--text-dark);
+}
+
+.member-details h4 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-light);
+    margin-bottom: var(--space-3);
+}
+
+.member-details p {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    margin-bottom: var(--space-3);
+}
+
+.member-details ul {
+    list-style: none;
+    padding: 0;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.member-details ul li {
+    margin: var(--space-2) 0;
+}
+
+/* Team Mission Section */
+.team-mission {
+    background: var(--white-bg);
+    padding: clamp(2rem, 5vw, 4rem);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 6px 20px var(--shadow-color);
+    margin: var(--space-8) auto;
+    max-width: 1200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-mission::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary-blue), var(--primary-blue-dark));
+}
+
+.team-mission h3 {
+    font-size: var(--font-size-2xl);
+    color: var(--text-dark);
+    margin-bottom: var(--space-4);
+    position: relative;
+    z-index: 1;
+}
+
+.team-mission > p {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+    color: var(--text-light);
+    margin-bottom: var(--space-6);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.team-values {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+}
+
+.value-item {
+    background: var(--white-bg);
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--primary-blue);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.value-item:hover {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue-dark);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px var(--shadow-color);
+}
+
+.value-item h4 {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin-bottom: var(--space-2);
+}
+
+.value-item p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .team-grid {
+        gap: var(--space-4);
+    }
+
+    .team-member {
+        height: 350px;
+    }
+
+    .member-overlay {
+        padding: var(--space-3);
+        background: linear-gradient(to bottom, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+        opacity: 0.95;
+    }
+
+    .member-details h3 {
+        font-size: 1.3rem;
+    }
+
+    .member-details h4 {
+        font-size: 1rem;
+    }
+
+    .member-details ul {
+        font-size: 0.85rem;
+    }
+
+    .team-values {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+        padding: 0 var(--space-2);
+    }
+
+    .team-mission {
+        padding: var(--space-4);
+        margin: var(--space-4) auto;
+    }
+
+    .value-item {
+        padding: var(--space-3);
+    }
+
+    .team-member {
+        height: 300px;
+    }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+    .team-member,
+    .member-thumbnail,
+    .member-thumbnail img,
+    .member-overlay,
+    .member-details,
+    .value-item {
+        transition: none;
+    }
+}
+
+/* High Contrast Mode */
+@media (forced-colors: active) {
+    .team-member {
+        border: 2px solid CanvasText;
+    }
+
+    .member-overlay {
+        background: Canvas;
+        border: 2px solid CanvasText;
+    }
+
+    .value-item {
+        border: 2px solid CanvasText;
+    }
+}

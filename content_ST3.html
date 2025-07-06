@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Education & Awareness - Health & Well-being Initiative</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/content_ST3.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo-nav">
+                <div class="logo">🏥</div>
+                <h1>Health & Well-being Initiative</h1>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="table.html">Table</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="sitemap.html">Site Map</a></li>
+                    
+                    <li><a href="team.html">Team</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h2>Health Education & Awareness</h2>
+                    <p class="hero-subtitle">Empowering communities through knowledge and preventive care</p>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg" alt="Community health education session">
+                </div>
+            </section>
+
+            <section class="programs-section">
+                <h3>Our Health Education Programs</h3>
+                <div class="programs-grid">
+                    <div class="program-card" data-category="workshops">
+                        <div class="program-icon">🎓</div>
+                        <h4>Community Health Workshops</h4>
+                        <p>Interactive workshops covering essential health topics for all ages and backgrounds.</p>
+                        <ul class="program-features">
+                            <li>First Aid & CPR Training</li>
+                            <li>Health Screening Awareness</li>
+                            <li>Chronic Disease Management</li>
+                            <li>Women's Health Education</li>
+                        </ul>
+                        <button class="learn-more-btn" onclick="showDetails('workshops')">Learn More</button>
+                    </div>
+
+                    <div class="program-card" data-category="prevention">
+                        <div class="program-icon">🛡️</div>
+                        <h4>Disease Prevention Tips</h4>
+                        <p>Evidence-based strategies to prevent common diseases and maintain optimal health.</p>
+                        <ul class="program-features">
+                            <li>Vaccination Guidelines</li>
+                            <li>Hygiene Best Practices</li>
+                            <li>Lifestyle Disease Prevention</li>
+                            <li>Infectious Disease Control</li>
+                        </ul>
+                        <button class="learn-more-btn" onclick="showDetails('prevention')">Learn More</button>
+                    </div>
+
+                    <div class="program-card" data-category="lifestyle">
+                        <div class="program-icon">🌟</div>
+                        <h4>Healthy Lifestyle Guides</h4>
+                        <p>Comprehensive guides to help you make informed decisions about your daily health habits.</p>
+                        <ul class="program-features">
+                            <li>Exercise & Fitness Plans</li>
+                            <li>Sleep Hygiene Guidelines</li>
+                            <li>Stress Management Techniques</li>
+                            <li>Work-Life Balance Tips</li>
+                        </ul>
+                        <button class="learn-more-btn" onclick="showDetails('lifestyle')">Learn More</button>
+                    </div>
+
+                    <div class="program-card" data-category="nutrition">
+                        <div class="program-icon">🥗</div>
+                        <h4>Nutritional Education</h4>
+                        <p>Learn about proper nutrition and dietary choices for optimal health and wellbeing.</p>
+                        <ul class="program-features">
+                            <li>Balanced Diet Planning</li>
+                            <li>Special Dietary Needs</li>
+                            <li>Food Safety & Preparation</li>
+                            <li>Nutritional Supplements Guide</li>
+                        </ul>
+                        <button class="learn-more-btn" onclick="showDetails('nutrition')">Learn More</button>
+                    </div>
+
+                    <div class="program-card" data-category="mental-health">
+                        <div class="program-icon">🧠</div>
+                        <h4>Mental Health Awareness</h4>
+                        <p>Breaking stigma and promoting mental wellness through education and support.</p>
+                        <ul class="program-features">
+                            <li>Mental Health First Aid</li>
+                            <li>Anxiety & Depression Support</li>
+                            <li>Mindfulness & Meditation</li>
+                            <li>Crisis Intervention Resources</li>
+                        </ul>
+                        <button class="learn-more-btn" onclick="showDetails('mental-health')">Learn More</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="resources-section">
+                <h3>Quick Health Resources</h3>
+                <div class="resources-grid">
+                    <div class="resource-item">
+                        <h4>📚 Health Library</h4>
+                        <p>Access our comprehensive collection of health articles, guides, and research.</p>
+                        <a href="#" class="resource-link">Browse Library</a>
+                    </div>
+                    <div class="resource-item">
+                        <h4>📱 Health Apps</h4>
+                        <p>Recommended mobile applications for tracking health metrics and wellness goals.</p>
+                        <a href="#" class="resource-link">View Apps</a>
+                    </div>
+                    <div class="resource-item">
+                        <h4>🏥 Find Care</h4>
+                        <p>Locate nearby healthcare facilities, specialists, and emergency services.</p>
+                        <a href="#" class="resource-link">Find Providers</a>
+                    </div>
+                    <div class="resource-item">
+                        <h4>📞 Support Lines</h4>
+                        <p>24/7 helplines for mental health support, crisis intervention, and health advice.</p>
+                        <a href="#" class="resource-link">Get Help</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="newsletter-section">
+                <div class="newsletter-content">
+                    <h3>Stay Informed</h3>
+                    <p>Subscribe to our health newsletter for the latest tips, research, and program updates.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Program Details Modal -->
+    <div id="program-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-body">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+<footer class="footer">
+        <div class="container">
+            <p>&copy;  ©2025 | Edited by: <a href="content_ST3.html" class="fname">Shevon</a></p>
+            <div class="footer-links">
+                <a href="editor_ST1.html">Student 1 Shevon</a>
+                <a href="editor_ST2.html"> Pasandi</a>
+                <a href="editor_ST3.html"> Minodya</a>
+                <a href="editor_ST4.html">Lithira</a>
+            </div>
+        </div>
+    </footer>
+    <script src="scripts/content_ST3.js"></script>
+</body>
+</html>

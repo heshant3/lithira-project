@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Page Editor - G. S. Tharaka (Student 1)</title>
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/editor_ST1.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="header">
+        <div class="container">
+            <div class="logo-nav">
+                <span class="logo">🏥</span>
+                <h1>Wellnest Solutions</h1>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="splash.html">Splash</a></li>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="table.html">Data</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="sitemap.html">Sitemap</a></li>
+                    <li><a href="team.html">Team</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" class="main">
+        <div class="container">
+            <h1>Page Editor: G. S. Tharaka (Student 1)</h1>
+            <nav class="internal-nav">
+                <ul>
+                    <li><a href="#overview">Content Overview</a></li>
+                    <li><a href="#splash">Splash Screen</a></li>
+                    <li><a href="#volunteer">Volunteer Page</a></li>
+                    <li><a href="#content">Content Page</a></li>
+                    <li><a href="#challenges">Challenges & Solutions</a></li>
+                    <li><a href="#accessibility">Accessibility</a></li>
+                    <li><a href="#compliance">Compliance</a></li>
+                    <li><a href="#references">References</a></li>
+                </ul>
+            </nav>
+
+            <section id="overview">
+                <h2>Content Overview</h2>
+                <p><strong>Name:</strong> G. S. Tharaka</p>
+                <p><strong>Role:</strong> Student 1 - Splash Screen, Volunteer Page, Content Page</p>
+                <p><strong>Completed Tasks/Pages:</strong></p>
+                <ul>
+                    <li><a href="splash.html" target="_blank" aria-label="View Splash Screen">Splash Screen</a> - Entry page with animated loader and auto-redirect.</li>
+                    <li><a href="volunteer.html" target="_blank" aria-label="View Volunteer Page">Volunteer Page</a> - Interactive page showcasing volunteering programs.</li>
+                    <li><a href="content_ST1.html" target="_blank" aria-label="View Content Page">Content Page (content_ST1.html)</a> - Mental health support content with internal navigation.</li>
+                    <li><a href="validation_ST1.html" target="_blank" aria-label="View Validation Page">Validation Page (validation_ST1.html)</a> - Evidence of page validation.</li>
+                </ul>
+            </section>
+
+            <section id="splash">
+                <h2>Splash Screen</h2>
+                <p>The <a href="splash.html" target="_blank" aria-label="View Splash Screen">Splash Screen</a> serves as the entry point to Wellnest Solutions, introducing the website’s mission and team. It redirects to the Home page after 4 seconds.</p>
+                <h3>Technical Implementation</h3>
+                <p><strong>HTML Structure:</strong> Used semantic HTML5 with <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, and <code>&lt;footer&gt;</code>. Included a <code>&lt;meta&gt;</code> tag with <code>http-equiv="refresh"</code> for auto-redirect to <code>home.html</code>.</p>
+                <p><strong>CSS Styling:</strong> Applied <code>global.css</code> for consistent typography and colors (e.g., <code>--primary-600</code> for text). Added an animated loader using CSS keyframes to rotate a medical cross emoji, styled with <code>--primary-500</code> border and <code>--neutral-50</code> background. Used Flexbox for centering content.</p>
+                <p><strong>Purpose:</strong> The <code>&lt;meta&gt;</code> tag ensures seamless navigation, while the animation enhances user engagement. The layout aligns with the website’s health theme using blue tones.</p>
+                <p><strong>Validation:</strong> Validated via W3C HTML Validator. See <a href="validation_ST1.html#splash-validation" target="_blank" aria-label="Splash Screen validation">validation results</a>.</p>
+            </section>
+
+            <section id="volunteer">
+                <h2>Volunteer Page</h2>
+                <p>The <a href="volunteer.html" target="_blank" aria-label="View Volunteer Page">Volunteer Page</a> promotes volunteering programs with interactive cards, a rating summary, and a feedback form.</p>
+                <h3>Technical Implementation</h3>
+                <p><strong>HTML Structure:</strong> Used <code>&lt;section&gt;</code> for scrollable program cards, ratings, and feedback form. Each card uses <code>&lt;article&gt;</code> with <code>&lt;img&gt;</code> (royalty-free from iStockPhoto), headings, and buttons. Included a non-functional <code>&lt;select&gt;</code> for sorting and a feedback form with <code>&lt;textarea&gt;</code>, <code>&lt;button&gt;</code>, and emoji ratings.</p>
+                <p><strong>CSS Styling:</strong> Applied <code>global.css</code> for layout (<code>--space-4</code> padding) and colors (<code>--primary-500</code> for buttons). Used CSS Grid for card layout and hover effects (scale transform, <code>--shadow-md</code>). Styled buttons with <code>.btn-primary</code> and <code>.btn-secondary</code> classes, adding <code>transition</code> for interactivity.</p>
+                <p><strong>Purpose:</strong> Semantic structure enhances accessibility, while hover effects and grid layout improve user engagement. The design uses health-themed colors to maintain consistency.</p>
+                <p><strong>Validation:</strong> Validated via W3C HTML Validator. See <a href="validation_ST1.html#volunteer-validation" target="_blank" aria-label="Volunteer Page validation">validation results</a>.</p>
+            </section>
+
+            <section id="content">
+                <h2>Content Page (content_ST1.html)</h2>
+                <p>The <a href="content_ST1.html" target="_blank" aria-label="View Content Page">Content Page</a> focuses on mental health support, with sections for Overview, Challenges, and Solutions, and a video.</p>
+                <h3>Technical Implementation</h3>
+                <p><strong>HTML Structure:</strong> Used <code>&lt;main&gt;</code> with <code>&lt;section&gt;</code> for each content area, linked via internal <code>&lt;nav&gt;</code> with anchor tags. Included four royalty-free images and a <code>&lt;video&gt;</code> element. Added a fixed “Go to Top” button with <code>&lt;a href="#"&gt;</code>.</p>
+                <p><strong>CSS Styling:</strong> Used <code>global.css</code> for typography (<code>--font-size-3xl</code> for headings) and colors (<code>--primary-600</code> for links). Applied Flexbox for internal navigation and CSS Grid for image layout. Styled the “Go to Top” button with <code>position: fixed</code> and <code>--radius-md</code>.</p>
+                <p><strong>Purpose:</strong> Internal links and headings improve navigation, while images and video enhance engagement. The design aligns with the health theme using <code>--primary-50</code> backgrounds.</p>
+                <p><strong>Validation:</strong> Validated via W3C HTML Validator. See <a href="validation_ST1.html#content-validation" target="_blank" aria-label="Content Page validation">validation results</a>.</p>
+            </section>
+
+            <section id="challenges">
+                <h2>Challenges & Solutions</h2>
+                <ul>
+                    <li><strong>Challenge:</strong> Splash Screen auto-redirect timing was too fast. <strong>Solution:</strong> Adjusted <code>&lt;meta&gt;</code> refresh to 4 seconds for better user experience.</li>
+                    <li><strong>Challenge:</strong> Volunteer page cards overflowed on mobile. <strong>Solution:</strong> Used CSS Grid with <code>minmax</code> and media queries for responsive layout.</li>
+                    <li><strong>Challenge:</strong> Content page images distorted on smaller screens. <strong>Solution:</strong> Applied <code>object-fit: cover</code> and responsive <code>max-width</code>.</li>
+                </ul>
+                <p><strong>Lessons Learned:</strong> Testing across devices early and using semantic HTML improves accessibility and maintainability.</p>
+            </section>
+
+            <section id="accessibility">
+                <h2>Accessibility</h2>
+                <p>All pages meet WCAG 2.1 AA standards:</p>
+                <ul>
+                    <li><strong>Semantic HTML:</strong> Used <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, and <code>&lt;article&gt;</code> for structure.</li>
+                    <li><strong>Keyboard Navigation:</strong> Added <code>tabindex="0"</code> to interactive elements and skip-to-content link.</li>
+                    <li><strong>Color Contrast:</strong> Ensured 4.5:1 ratio using <code>--primary-600</code> and <code>--neutral-50</code>.</li>
+                    <li><strong>Alt Text:</strong> Provided descriptive alt text for all images and icons.</li>
+                    <li><strong>Reduced Motion:</strong> Supported via <code>@media (prefers-reduced-motion)</code> in global.css.</li>
+                </ul>
+            </section>
+
+            <section id="compliance">
+                <h2>Compliance</h2>
+                <p>My pages comply with Janet regulations for web publication:</p>
+                <ul>
+                    <li><strong>Validation:</strong> All pages passed W3C HTML and CSS validation with no errors.</li>
+                    <li><strong>Accessibility:</strong> Adhered to WCAG 2.1 AA, ensuring inclusivity.</li>
+                    <li><strong>Content Originality:</strong> Used original content and royalty-free images from iStockPhoto, properly referenced.</li>
+                </ul>
+            </section>
+
+            <section id="references">
+                <h2>References</h2>
+                <ul>
+                    <li><a href="https://www.w3.org/TR/WCAG21/" target="_blank" aria-label="WCAG 2.1 Guidelines">W3C. (2018). Web Content Accessibility Guidelines (WCAG) 2.1.</a></li>
+                    <li><a href="https://www.istockphoto.com/" target="_blank" aria-label="iStockPhoto">iStockPhoto. (2025). Royalty-free images.</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" aria-label="MDN CSS Reference">MDN Web Docs. (2025). CSS Reference.</a></li>
+                    <li>University of Westminster Lecture Notes: Basic HTML, Styling & CSS, Tutorial 3.</li>
+                </ul>
+            </section>
+
+            <a href="#" class="btn btn-primary go-to-top" aria-label="Go to top of page">Go to Top</a>
+        </div>
+    </main>
+
+ <footer class="footer">
+        <div class="container">
+            <p>&copy;  ©2025 | Edited by: <a href="pageEditor_ST3.html" class="fname">Shevon</a></p>
+            <div class="footer-links">
+                <a href="editor_ST1.html">Student 1 Shevon</a>
+                <a href="editor_ST2.html"> Pasandi</a>
+                <a href="editor_ST3.html"> Minodya</a>
+                <a href="editor_ST4.html">Lithira</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
