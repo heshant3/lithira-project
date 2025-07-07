@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor Page - Minodya (Student 3)</title>
+    <style>
+        :root {
+            --primary-blue: #2196f3;
+            --light-blue: #e3f2fd;
+            --dark-blue: #1976d2;
+            --white: #ffffff;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --border-light: #e0e0e0;
+            --accent-light: #f8fbff;
+            --shadow: 0 4px 20px rgba(33, 150, 243, 0.1);
+            --shadow-hover: 0 8px 30px rgba(33, 150, 243, 0.15);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--white);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .editor-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--white);
+            border: 2px solid var(--light-blue);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin: 0 0 0.5rem 0;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            margin: 0;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius);
+            background: var(--white);
+            transition: var(--transition);
+        }
+
+        .section:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-blue);
+        }
+
+        .section h2 {
+            color: var(--dark-blue);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--primary-blue);
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--dark-blue);
+        }
+
+        .section h3 {
+            color: var(--primary-blue);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 600;
+        }
+
+        .section p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .section ul, .section ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .page-card {
+            background: var(--accent-light);
+            border: 2px solid var(--light-blue);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .page-card:hover {
+            border-color: var(--primary-blue);
+            box-shadow: var(--shadow);
+        }
+
+        .page-card h4 {
+            color: var(--dark-blue);
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .page-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .page-links a {
+            color: var(--white);
+            background: var(--primary-blue);
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .page-links a:hover {
+            background: var(--dark-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: var(--light-blue);
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .code-snippet {
+            background: #f8f9fa;
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            padding: 0.3rem 0.6rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: var(--dark-blue);
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, var(--light-blue) 0%, var(--light-blue) 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.2em;
+            background-position: 0 88%;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+        }
+
+        .footer {
+            background: var(--accent-light);
+            padding: 1.5rem;
+            text-align: center;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .footer p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content {
+                padding: 1rem;
+            }
+            
+            .section {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            .page-links {
+                flex-direction: column;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="editor-container">
+        <div class="header">
+            <h1>👩‍💻✨ Editor Page: Minodya 💖</h1>
+            <p>Student 3 - Content Specialist & Health Education Expert 🌸</p>
+        </div>
+
+       
+
+        <div class="content">
+            <div class="section">
+                
+                <h2>📊💕 Content Overview</h2>
+                <p><strong style="font-size: 1.4rem">Name:</strong> <a href="team.html" style="text-decoration: none; font-weight: bolder;color: #039aff; font-size: 1.4rem;">Minodya 🌺</a></p>
+                <p><strong>Role:</strong> Student 3 - Content Specialist 👑</p>
+                <p><strong>Focus Area:</strong> Health Education & Awareness, Team Management, User Feedback 🦋</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">3</span>
+                        <div class="stat-label">HTML Pages 📄✨</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">3</span>
+                        <div class="stat-label">CSS Stylesheets 🎨💅</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1</span>
+                        <div class="stat-label">JavaScript File 💻🌟</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <div class="stat-label">Lines of Code 📝💖</div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🎯💕 Pages I Developed</h2>
+
+                <div class="page-card">
+                    <h4>🏥💗 Health Education & Awareness (content_ST3.html)</h4>
+                    <p>A comprehensive health education platform featuring interactive program cards, modal windows, and educational resources. This page serves as the main content hub for Student 3's contribution to the Health & Well-being Initiative. 🌸✨</p>
+                    <p><strong>Key Features:</strong> 🎀</p>
+                    <ul>
+                        <li>Interactive program cards with detailed modal popups 🌟</li>
+                        <li>Health education programs covering workshops, prevention, lifestyle, nutrition, and mental health 💪🌺</li>
+                        <li>Newsletter subscription functionality 📧💕</li>
+                        <li>Quick health resources section 🔗✨</li>
+                        <li>Responsive design with smooth animations 📱💫</li>
+                    </ul>
+                </div>
+
+                <div class="page-card">
+                    <h4>👥🌸 Team Showcase (team.html)</h4>
+                    <p>An interactive team page featuring beautiful card flip animations and comprehensive team member information. Showcases the collaborative nature of the Health & Well-being Initiative. 💖🦋</p>
+                    <p><strong>Key Features:</strong> 🎀</p>
+                    <ul>
+                        <li>3D card flip effects on hover 🔄✨</li>
+                        <li>Team member details with roles and responsibilities 👑💕</li>
+                        <li>Mission statement and values section 🌟💗</li>
+                        <li>Responsive grid layout 📐🌺</li>
+                    </ul>
+                </div>
+
+                <div class="page-card">
+                    <h4>💬🌸 User Feedback (feedback.html)</h4>
+                    <p>A comprehensive feedback form with advanced validation, interactive elements, and accessibility features. Enables users to provide valuable feedback on health programs and services. 📝💖</p>
+                    <p><strong>Key Features:</strong> 🎀</p>
+                    <ul>
+                        <li>Multi-section form with fieldsets and legends 📋✨</li>
+                        <li>Interactive emoji rating system 😍🌟</li>
+                        <li>Character counter for text areas 📊💕</li>
+                        <li>File upload functionality 📎🌺</li>
+                        <li>Custom validation and error handling 🔍💗</li>
+                    </ul>
+                </div>
+
+                <div class="page-links">
+                    <a href="content_ST3.html" target="_blank">Health Education Page 🏥💖</a>
+                    <a href="team.html" target="_blank">Team Page 👥🌸</a>
+                    <a href="feedback.html" target="_blank">Feedback Page 💬✨</a>
+                </div>
+
+     
+            </div>
+
+            <div class="section">
+                <h2>🔧💕 Technical Implementation</h2>
+                
+                <h3>Health Education Page (content_ST3.html) 🏥🌺</h3>
+                <p>Developed a comprehensive health education platform with the following technical specifications: 💻✨</p>
+                <ul>
+                    <li><strong>HTML Structure:</strong> Semantic HTML5 with <span class="code-snippet">&lt;section&gt;</span>, <span class="code-snippet">&lt;article&gt;</span>, and proper heading hierarchy 📄💖</li>
+                    <li><strong>CSS Framework:</strong> Custom CSS with CSS Grid and Flexbox for responsive layouts 🎨🌟</li>
+                    <li><strong>JavaScript Features:</strong> Interactive modals, form validation, and scroll animations 💫💕</li>
+                    <li><strong>Color Scheme:</strong> White background with light blue accents (#e3f2fd, #2196f3) 🎨🌸</li>
+                    <li><strong>Responsive Design:</strong> Mobile-first approach with breakpoints at 768px and 480px 📱🦋</li>
+                    <li><strong>Accessibility:</strong> ARIA labels, keyboard navigation, and screen reader support ♿💗</li>
+                </ul>
+
+                <h3>Team Page CSS (team.css) 👥💅</h3>
+                <p>Advanced CSS implementation featuring: 🌟</p>
+                <ul>
+                    <li><strong>3D Transforms:</strong> Used <span class="code-snippet">perspective: 1000px</span> and <span class="code-snippet">transform-style: preserve-3d</span> for card flip effects 🔄✨</li>
+                    <li><strong>Gradient Backgrounds:</strong> Linear gradients for modern visual appeal 🌈💖</li>
+                    <li><strong>Custom Animations:</strong> Smooth transitions with <span class="code-snippet">cubic-bezier</span> timing functions 💫🌺</li>
+                    <li><strong>Grid Layout:</strong> Responsive grid with <span class="code-snippet">repeat(auto-fit, minmax(320px, 1fr))</span> 📐🌸</li>
+                    <li><strong>Hover Effects:</strong> Interactive states with transform and shadow changes ✨💕</li>
+                    <li><strong>Accessibility:</strong> Reduced motion support and high contrast mode compatibility ♿🦋</li>
+                </ul>
+
+                <h3>Feedback Page CSS (feedback.css) 📝💗</h3>
+                <p>Comprehensive form styling with: 🎀</p>
+                <ul>
+                    <li><strong>Form Layout:</strong> Flexbox and Grid for complex form arrangements 📋✨</li>
+                    <li><strong>Custom Controls:</strong> Styled radio buttons, checkboxes, and file inputs 🎯💖</li>
+                    <li><strong>Validation States:</strong> Visual feedback for valid/invalid inputs using CSS pseudo-classes ✅🌺</li>
+                    <li><strong>Interactive Elements:</strong> Emoji rating system with hover and selected states 😍💕</li>
+                    <li><strong>Responsive Design:</strong> Mobile-optimized form layouts 📱🌸</li>
+                    <li><strong>Animation:</strong> Smooth form reveal animations with staggered delays 💫🦋</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>🎨💖 Design Philosophy</h2>
+                <p>My design approach focuses on creating a <span class="highlight">clean, accessible, and user-friendly experience</span> that aligns with the Health & Well-being Initiative's mission: 🌟✨</p>
+                <ul>
+                    <li><strong>Color Psychology:</strong> Blue tones to convey trust, reliability, and healthcare professionalism 💙🌺</li>
+                    <li><strong>Visual Hierarchy:</strong> Clear content organization with proper typography and spacing 📐💕</li>
+                    <li><strong>Interactive Elements:</strong> Engaging hover effects and smooth transitions 💫🌸</li>
+                    <li><strong>Accessibility First:</strong> Ensuring all users can access and navigate the content ♿💗</li>
+                    <li><strong>Mobile Responsiveness:</strong> Optimized for all device sizes 📱🦋</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>📱💕 Responsive Design Features</h2>
+                <p>Implemented comprehensive responsive design across all pages: 🌟</p>
+                <ul>
+                    <li><strong>Mobile-First Approach:</strong> Designed for mobile devices first, then enhanced for larger screens 📱✨</li>
+                    <li><strong>Flexible Grid Systems:</strong> CSS Grid and Flexbox for adaptive layouts 📐💖</li>
+                    <li><strong>Scalable Typography:</strong> Responsive font sizes using <span class="code-snippet">clamp()</span> and viewport units 📝🌺</li>
+                    <li><strong>Touch-Friendly Interactions:</strong> Appropriately sized buttons and interactive elements 👆💕</li>
+                    <li><strong>Performance Optimization:</strong> Efficient CSS and minimal JavaScript for fast loading ⚡🌸</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>🚀💖 JavaScript Functionality</h2>
+                <p>Developed interactive JavaScript features for enhanced user experience: 💻✨</p>
+                <ul>
+                    <li><strong>Modal System:</strong> Dynamic content loading with smooth animations 🔄💕</li>
+                    <li><strong>Form Validation:</strong> Real-time email validation and character counting 📧🌺</li>
+                    <li><strong>Scroll Animations:</strong> Intersection Observer API for element animations 📜🌸</li>
+                    <li><strong>Event Handling:</strong> Efficient event delegation and keyboard navigation ⌨️💗</li>
+                    <li><strong>Accessibility:</strong> ARIA attributes and screen reader support ♿🦋</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>🌟💕 Challenges and Solutions</h2>
+                <p>Throughout development, I encountered and solved several technical challenges: 🧩✨</p>
+                <ul>
+                    <li><strong>Modal Scrolling Issues:</strong> Fixed by implementing proper overflow handling and viewport height restrictions 📜💖</li>
+                    <li><strong>Form Validation:</strong> Created custom validation patterns while maintaining accessibility 📝🌺</li>
+                    <li><strong>3D Card Effects:</strong> Resolved backface visibility issues in different browsers 🔄🌸</li>
+                    <li><strong>Responsive Images:</strong> Optimized image loading and aspect ratios across devices 🖼️💕</li>
+                    <li><strong>Cross-Browser Compatibility:</strong> Tested and fixed issues across major browsers 🌐💗</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>♿💖 Accessibility Compliance</h2>
+                <p>Ensured all content meets WCAG 2.1 AA standards: 🌟</p>
+                <ul>
+                    <li><strong>Semantic HTML:</strong> Proper use of headings, landmarks, and ARIA labels 📄✨</li>
+                    <li><strong>Keyboard Navigation:</strong> Full keyboard accessibility for all interactive elements ⌨️💕</li>
+                    <li><strong>Color Contrast:</strong> Minimum 4.5:1 contrast ratio for all text 🎨🌺</li>
+                    <li><strong>Screen Reader Support:</strong> Descriptive alt text and ARIA descriptions 🔊🌸</li>
+                    <li><strong>Focus Management:</strong> Visible focus indicators and logical tab order 🎯💗</li>
+                    <li><strong>Reduced Motion:</strong> Respects user preferences for reduced motion 🌀🦋</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>🔍💕 Quality Assurance</h2>
+                <p>Rigorous testing and validation processes: 🧪✨</p>
+                <ul>
+                    <li><strong>HTML Validation:</strong> All pages validated using W3C HTML Validator ✅💖</li>
+                    <li><strong>CSS Validation:</strong> Stylesheets validated for syntax and best practices 🎨🌺</li>
+                    <li><strong>Accessibility Testing:</strong> Tested with screen readers and accessibility tools ♿🌸</li>
+                    <li><strong>Cross-Browser Testing:</strong> Verified compatibility across Chrome, Firefox, Safari, and Edge 🌐💕</li>
+                    <li><strong>Performance Testing:</strong> Optimized loading times and resource usage ⚡💗</li>
+                    <li><strong>Mobile Testing:</strong> Tested on various device sizes and orientations 📱🦋</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>📚💖 References & Resources</h2>
+                <ol>
+                    <li><a href="https://validator.w3.org/" target="_blank">W3C HTML Validator 🌟</a></li>
+                    <li><a href="https://jigsaw.w3.org/css-validator/" target="_blank">W3C CSS Validator 💅</a></li>
+                    <li><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank">WCAG 2.1 Quick Reference ♿</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout" target="_blank">MDN CSS Grid Layout 📐</a></li>
+                    <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">CSS Tricks Flexbox Guide 🎯</a></li>
+                    <li><a href="https://web.dev/accessibility/" target="_blank">Web.dev Accessibility Guidelines 🌸</a></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 Minodya - Student 3 | Health & Well-being Initiative 💖✨🌺</p>
+        </div>
+    </div>
+</body>
+</html>

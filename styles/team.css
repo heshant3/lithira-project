@@ -1,32 +1,10 @@
-/* Team Page Styles */
-
-/* Define custom properties for consistent theming */
-:root {
-    --primary-blue: #E0F1FF;
-    --primary-blue-dark: #B3D7FF;
-    --white-bg: #FFFFFF;
-    --shadow-color: rgba(0, 0, 0, 0.1);
-    --text-dark: #1A1A1A;
-    --text-light: #4A4A4A;
-    --radius-lg: 12px;
-    --radius-xl: 16px;
-    --space-2: 0.5rem;
-    --space-3: 0.75rem;
-    --space-4: 1rem;
-    --space-6: 1.5rem;
-    --space-8: 2rem;
-    --font-size-lg: 1.125rem;
-    --font-size-2xl: 1.5rem;
-    --line-height-relaxed: 1.625;
-}
-
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--space-6);
-    margin: var(--space-8) auto;
+    gap: 1.5rem;
+    margin: 2rem auto;
     max-width: 1400px;
-    padding: 0 var(--space-4);
+    padding: 0 1rem;
 }
 
 .team-member {
@@ -34,15 +12,15 @@
     width: 100%;
     height: 400px;
     perspective: 1000px;
-    border-radius: var(--radius-xl);
-    background: var(--white-bg);
+    border-radius: 16px;
+    background: #FFFFFF;
     overflow: hidden;
     transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
 }
 
 .team-member:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 12px 24px var(--shadow-color);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
 .member-thumbnail {
@@ -51,8 +29,8 @@
     height: 100%;
     transform-style: preserve-3d;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    border-radius: var(--radius-xl);
-    border: 2px solid var(--primary-blue);
+    border-radius: 16px;
+    border: 2px solid #E0F1FF;
 }
 
 .team-member:hover .member-thumbnail {
@@ -65,7 +43,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: var(--radius-xl);
+    border-radius: 16px;
     backface-visibility: hidden;
     transition: opacity 0.3s ease;
 }
@@ -78,14 +56,14 @@
 .member-overlay {
     position: absolute;
     inset: 0;
-    padding: var(--space-4);
+    padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
     backface-visibility: hidden;
     transform: rotateY(180deg);
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
-    border-radius: var(--radius-xl);
+    background: linear-gradient(135deg, #E0F1FF 0%, #B3D7FF 100%);
+    border-radius: 16px;
     opacity: 0;
     transition: opacity 0.4s ease;
 }
@@ -95,7 +73,7 @@
 }
 
 .member-details {
-    color: var(--text-dark);
+    color: #1A1A1A;
     text-align: center;
     transform: translateY(20px);
     opacity: 0;
@@ -110,41 +88,41 @@
 .member-details h3 {
     font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: var(--space-2);
-    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    color: #1A1A1A;
 }
 
 .member-details h4 {
     font-size: 1.1rem;
     font-weight: 500;
-    color: var(--text-light);
-    margin-bottom: var(--space-3);
+    color: #4A4A4A;
+    margin-bottom: 0.75rem;
 }
 
 .member-details p {
     font-size: 0.95rem;
-    color: var(--text-dark);
-    margin-bottom: var(--space-3);
+    color: #1A1A1A;
+    margin-bottom: 0.75rem;
 }
 
 .member-details ul {
     list-style: none;
     padding: 0;
     font-size: 0.9rem;
-    color: var(--text-dark);
+    color: #1A1A1A;
 }
 
 .member-details ul li {
-    margin: var(--space-2) 0;
+    margin: 0.5rem 0;
 }
 
 /* Team Mission Section */
 .team-mission {
-    background: var(--white-bg);
+    background: #FFFFFF;
     padding: clamp(2rem, 5vw, 4rem);
-    border-radius: var(--radius-xl);
-    box-shadow: 0 6px 20px var(--shadow-color);
-    margin: var(--space-8) auto;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
     max-width: 1200px;
     position: relative;
     overflow: hidden;
@@ -157,22 +135,22 @@
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(to right, var(--primary-blue), var(--primary-blue-dark));
+    background: linear-gradient(to right, #E0F1FF, #B3D7FF);
 }
 
 .team-mission h3 {
-    font-size: var(--font-size-2xl);
-    color: var(--text-dark);
-    margin-bottom: var(--space-4);
+    font-size: 1.5rem;
+    color: #1A1A1A;
+    margin-bottom: 1rem;
     position: relative;
     z-index: 1;
 }
 
 .team-mission > p {
-    font-size: var(--font-size-lg);
-    line-height: var(--line-height-relaxed);
-    color: var(--text-light);
-    margin-bottom: var(--space-6);
+    font-size: 1.125rem;
+    line-height: 1.625;
+    color: #4A4A4A;
+    margin-bottom: 1.5rem;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
@@ -181,42 +159,42 @@
 .team-values {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: var(--space-4);
-    margin-top: var(--space-6);
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
 .value-item {
-    background: var(--white-bg);
-    padding: var(--space-4);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--primary-blue);
+    background: #FFFFFF;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid #E0F1FF;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
 }
 
 .value-item:hover {
-    background: var(--primary-blue);
-    border-color: var(--primary-blue-dark);
+    background: #E0F1FF;
+    border-color: #B3D7FF;
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px var(--shadow-color);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .value-item h4 {
     font-size: 1.2rem;
-    color: var(--text-dark);
-    margin-bottom: var(--space-2);
+    color: #1A1A1A;
+    margin-bottom: 0.5rem;
 }
 
 .value-item p {
     font-size: 0.95rem;
-    color: var(--text-light);
+    color: #4A4A4A;
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .team-grid {
-        gap: var(--space-4);
+        gap: 1rem;
     }
 
     .team-member {
@@ -224,8 +202,8 @@
     }
 
     .member-overlay {
-        padding: var(--space-3);
-        background: linear-gradient(to bottom, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+        padding: 0.75rem;
+        background: linear-gradient(to bottom, #E0F1FF 0%, #B3D7FF 100%);
         opacity: 0.95;
     }
 
@@ -249,16 +227,16 @@
 @media (max-width: 480px) {
     .team-grid {
         grid-template-columns: 1fr;
-        padding: 0 var(--space-2);
+        padding: 0 0.5rem;
     }
 
     .team-mission {
-        padding: var(--space-4);
-        margin: var(--space-4) auto;
+        padding: 1rem;
+        margin: 1rem auto;
     }
 
     .value-item {
-        padding: var(--space-3);
+        padding: 0.75rem;
     }
 
     .team-member {
